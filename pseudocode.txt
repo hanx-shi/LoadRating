@@ -1,9 +1,10 @@
 I would like to design a GUI-based spreadsheet application that is specifically designed for entering data from as-built drawings of highway bridges for load rating software BrR. As I have been doing this manually, I have noticed patterns in bridges and components that lend well to it being stored as object-oriented data. The data structure is as follows:
 
-Each project file is stored as a Bridge file. 
-Bridge has an arrayList of Span objects
+Each project file is stored as a Bridge file that the application accesses to populate the information.
+class Bridge
+ArrayList<SpanSuperstructure> spans
 
-A SpanSuperstructure object has:
+class SpanSuperstructure
 int index
 String centerline
 double startStation
@@ -206,3 +207,10 @@ public class Angle {
         return String.format("%.6f°", decimalDegrees);
     }
 }
+
+Questions:
+How would I implement this in a GUI? I would like to create a spreadsheet like application where all fields are visible in a table. There will be separate sheets:
+1. Span Superstructure
+2. Girder Details
+3. Girder Registry
+Additionally, there would be a visual window where there is a drawing of a span, but with text fields in the relevant locations so that the user can easily enter in the corresponding value for the part of the span. Then the data updates accordingly. 
